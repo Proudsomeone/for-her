@@ -1,1 +1,320 @@
 # for-her
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>For You ❤️</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      min-height:100vh;
+      overflow:hidden;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      position:relative;
+      background:black;
+    }
+
+    /* BACKGROUND SLIDESHOW */
+
+    .slideshow{
+      position:fixed;
+      width:100%;
+      height:100%;
+      top:0;
+      left:0;
+      z-index:-2;
+    }
+
+    .slide{
+      position:absolute;
+      width:100%;
+      height:100%;
+      background-size:cover;
+      background-position:center;
+      opacity:0;
+      animation:slideShow 20s infinite;
+    }
+
+    .slide::after{
+      content:'';
+      position:absolute;
+      width:100%;
+      height:100%;
+      background:rgba(0,0,0,0.55);
+      top:0;
+      left:0;
+    }
+
+    /* ========================= */
+    /* CHANGE PHOTO NAMES HERE  */
+    /* ========================= */
+
+    .slide:nth-child(1){
+      background-image:url('photo1.jpg');
+      animation-delay:0s;
+    }
+
+    .slide:nth-child(2){
+      background-image:url('photo2.jpg');
+      animation-delay:5s;
+    }
+
+    .slide:nth-child(3){
+      background-image:url('photo3.jpg');
+      animation-delay:10s;
+    }
+
+    .slide:nth-child(4){
+      background-image:url('photo4.jpg');
+      animation-delay:15s;
+    }
+
+    /* ========================= */
+
+    @keyframes slideShow{
+
+      0%{
+        opacity:0;
+       
+      }
+
+      10%{
+        opacity:1;
+      }
+
+      25%{
+        opacity:1;
+       
+      }
+
+      35%{
+        opacity:0;
+      }
+
+      100%{
+        opacity:0;
+      }
+    }
+
+    /* MAIN CARD */
+
+    .container{
+      width:90%;
+      max-width:420px;
+      padding:28px;
+      border-radius:28px;
+      background:rgba(255,255,255,0.08);
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,0.15);
+      text-align:center;
+      color:white;
+      box-shadow:0 10px 40px rgba(0,0,0,0.4);
+      animation:fadeIn 1.5s ease;
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(20px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .heart{
+      font-size:2.3rem;
+      animation:heartbeat 1.5s infinite;
+      margin-bottom:12px;
+    }
+
+    @keyframes heartbeat{
+      0%,100%{
+        transform:scale(1);
+      }
+
+      50%{
+        transform:scale(1.15);
+      }
+    }
+
+    h1{
+      font-size:2rem;
+      margin-bottom:10px;
+    }
+
+    .subtitle{
+      font-size:0.95rem;
+      opacity:0.85;
+      margin-bottom:20px;
+      line-height:1.6;
+    }
+
+    button{
+      padding:14px 24px;
+      border:none;
+      border-radius:50px;
+      background:linear-gradient(135deg,#ec4899,#8b5cf6);
+      color:white;
+      font-size:1rem;
+      cursor:pointer;
+      transition:0.3s ease;
+      margin-top:10px;
+      box-shadow:0 5px 20px rgba(236,72,153,0.4);
+    }
+
+    button:hover{
+      transform:scale(1.05);
+    }
+
+    .message{
+      display:none;
+      margin-top:25px;
+      line-height:1.9;
+      font-size:1rem;
+      animation:fadeIn 1s ease;
+    }
+
+    #countdown{
+      margin-bottom:18px;
+      font-size:0.95rem;
+      opacity:0.9;
+    }
+
+    .footer{
+      margin-top:25px;
+      font-size:0.8rem;
+      opacity:0.7;
+    }
+
+    /* MOBILE FRIENDLY */
+
+    @media(max-width:480px){
+
+      .container{
+        padding:24px;
+      }
+
+      h1{
+        font-size:1.8rem;
+      }
+
+      .message{
+        font-size:0.95rem;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- BACKGROUND SLIDESHOW -->
+
+  <div class="slideshow">
+
+    <div class="slide"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+    <div class="slide"></div>
+
+  </div>
+
+  <!-- MAIN CONTENT -->
+
+  <div class="container">
+
+    <div class="heart">❤️</div>
+
+    <h1>Hey Love...</h1>
+
+    <p class="subtitle">
+      There’s something my heart wanted to tell you.
+    </p>
+
+    <h3 id="countdown"></h3>
+
+    <button onclick="showMessage()">
+      Tap Here ❤️
+    </button>
+
+    <div class="message" id="message">
+
+      I know you're hurt and angry with me right now...
+
+      <br><br>
+
+      And honestly,
+      I hate the fact that I became the reason behind your sadness.
+
+      <br><br>
+
+      Even in this silence...
+      even in these difficult moments...
+
+      <br><br>
+
+      My heart still chooses you first.
+
+      <br><br>
+
+      I don't want my mistake
+      to become bigger than our love.
+
+      <br><br>
+
+      So until I can hold your hand
+      and apologise properly...
+
+      <br><br>
+
+      Please keep a tiny space for me
+      in your beautiful heart ❤️
+
+    </div>
+
+    <div class="footer">
+      Made with love, only for you.
+    </div>
+
+  </div>
+
+  <!-- OPTIONAL MUSIC -->
+
+  <!-- CHANGE song.mp3 TO YOUR SONG NAME -->
+
+  <audio autoplay loop>
+    <source src="song.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+
+    function showMessage(){
+      document.getElementById('message').style.display='block';
+    }
+
+    document.getElementById('countdown').innerHTML =
+    "Only 2 days left until I see you again ❤️";
+
+  </script>
+
+</body>
+
+</html>
